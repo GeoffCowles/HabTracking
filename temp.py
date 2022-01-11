@@ -83,8 +83,13 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 
 
-# using matplotlib basemap toolkit can add coastlines 
-# install is picky about python version
+# import bathy data
+ds = netCDF4.Dataset('geographic_data/gebco_2021_n50.0_s30.0_w-80.0_e-50.0.nc')
+lat_elev = ds.variables['lat'][:]
+lon_elev = ds.variables['lon'][:]
+elev = ds.variables['elevation'][:]
+ds.close()
+
 
 output_file.export()  # export the trajectory data to a netcdf file
 
@@ -102,10 +107,17 @@ nc.close()
 # plot
 fig = plt.figure(figsize=(13,10))
 ax = plt.axes()
+plt.contour(lon_elev,lat_elev,-elev,[0,100,1000],colors=['black','blue','red'],linewidths=[1,1,1])
+
+
 for p in range(x.shape[0]):
     cb = ax.scatter(x[p,:], y[p,:], c=salt[p,:], s=20, marker="o")
 
 ax.set_xlabel("Longitude")
 ax.set_ylabel("Latitude")
 plt.title('With temperature')
+
+ax.set_xlim(-71,-68.5)
+ax.set_ylim(41,43.5)
+
 plt.show()
