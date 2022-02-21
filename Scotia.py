@@ -6,7 +6,7 @@ Created on Tue Feb 15 09:52:13 2022
 @author: lcabral4
 """
 
-n = 1000#number of particles
+n = 10000#number of particles
 lonmin = -59.590556
 lonmax = -55.86
 latmin = 45.8675

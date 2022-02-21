@@ -143,11 +143,12 @@ fig = plt.figure(figsize=(13,10))
 for p in range(x.shape[0]):
     cb = plt.scatter(x[p,:], y[p,:], c=temp[p,:], s=0.01, marker = "o")
     plt.scatter(x[:,0], y[:,0], s= 20, marker = 's') 
-plt.title('Temperature Variable')
+plt.title('Scotia temperature ')
 plt.xlabel("Longitude")
 plt.ylabel("Latitude")
 plt.savefig("Scotia.png")
     
+#plt.show()
 
 
 fig = plt.figure(figsize=(13,10))
@@ -166,9 +167,9 @@ ax.add_feature(cfeature.COASTLINE)
 #ax.set_xticks(np.arange(-80,-65,100), crs=ccrs.PlateCarree())
 lon_formatter = cticker.LongitudeFormatter()
 ax.xaxis.set_major_formatter(lon_formatter)
-ax.set_xticks([-66, -65], crs=ccrs.PlateCarree())
-ax.set_yticks([45, 46], crs=ccrs.PlateCarree())
-ax.set_yticks(np.arange(40,50,20), crs=ccrs.PlateCarree())
+ax.set_xticks([-75, -70, -65, -60, -55, -50, -45, -40, -35, -30, -25, -20, -15, -10,-5, 0], crs=ccrs.PlateCarree())
+ax.set_yticks([30, 35, 40, 45, 50, 55, 60, 65, 70, 75], crs=ccrs.PlateCarree())
+#ax.set_yticks(np.arange(40,50,20), crs=ccrs.PlateCarree())
 lat_formatter = cticker.LatitudeFormatter()
 #ax.yaxis.set_major_formatter(lat_formatter) 
 #lon, lat = np.meshgrid(x, y)
@@ -179,25 +180,13 @@ for p in range(x.shape[0]):
 
 
 
-plt.rcParams['figure.figsize'] = [10,10]
-fig, ax = plt.subplots()
-#plt.contour(lons,lats,-elev,[0,100,1000],colors=['black','blue','red'],linewidths=[1,1,1])
-plt.contour(x,y,[0],colors=['black'],linewidths=[1])
-
-
-ax.set_title('Default contour')
-ax.set_xlabel('Lon')
-ax.set_ylabel('Lat')
-
-for p in range(x.shape[0]):
-    cb = plt.scatter(x[p,:], y[p,:], c=temp[p,:], s=0.0001, marker = "o")
-    plt.scatter(x[:,0], y[:,0]) 
+# plot
 
 
 
 
-
-plt.title('Temperature Variable')
+plt.title('Scotia Temperature')
 plt.xlabel("Longitude")
 plt.ylabel("Latitude")
-plt.savefig("Scotia_Temp1.png")    
+plt.savefig("Scotia_Temp.png")    
+#plt.show()
