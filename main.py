@@ -148,7 +148,6 @@ plt.xlabel("Longitude")
 plt.ylabel("Latitude")
 plt.savefig("Scotia.png")
     
-plt.show()
 
 
 fig = plt.figure(figsize=(13,10))
@@ -176,11 +175,24 @@ lat_formatter = cticker.LatitudeFormatter()
 for p in range(x.shape[0]):
     cb = plt.scatter(x[p,:], y[p,:], c=temp[p,:], s=0.0001, marker = "o")
     plt.scatter(x[:,0], y[:,0]) 
-print(temp, 'temp')
+#print(temp, 'temp')
 
 
 
-# plot
+plt.rcParams['figure.figsize'] = [10,10]
+fig, ax = plt.subplots()
+#plt.contour(lons,lats,-elev,[0,100,1000],colors=['black','blue','red'],linewidths=[1,1,1])
+plt.contour(x,y,[0],colors=['black'],linewidths=[1])
+
+
+ax.set_title('Default contour')
+ax.set_xlabel('Lon')
+ax.set_ylabel('Lat')
+
+for p in range(x.shape[0]):
+    cb = plt.scatter(x[p,:], y[p,:], c=temp[p,:], s=0.0001, marker = "o")
+    plt.scatter(x[:,0], y[:,0]) 
+
 
 
 
@@ -188,5 +200,4 @@ print(temp, 'temp')
 plt.title('Temperature Variable')
 plt.xlabel("Longitude")
 plt.ylabel("Latitude")
-plt.savefig("Scotia_Temp.png")    
-plt.show()
+plt.savefig("Scotia_Temp1.png")    
