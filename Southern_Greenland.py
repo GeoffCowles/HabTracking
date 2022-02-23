@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Tue Feb 15 09:52:13 2022
+Created on Wed Feb 23 11:38:46 2022
 
 @author: lcabral4
 """
 
-n = 10000#number of particles
-lonmin = -53.314722
-lonmax = -49.548333
-latmin = 61.821667
-latmax = 58.723889
+n = 600#number of particles
+lonmin = -50.806389
+lonmax = -47.596111
+latmin = 60.537778
+latmax = 47.596111
 days = 600 #number of days to run code
 outputminutes=30 #output file minutes
 dtminutes = 1 #timestep minutes
