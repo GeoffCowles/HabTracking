@@ -227,6 +227,7 @@ for p in range(x.shape[0]):
             particle.append(p)
 #            times.append(t*1.15741e-5)
             longitude.append(x[p,0])
+            break
 
 #print(particle, longitude)
 #for n, l, m, k in zip(particle, longitude, latitude, times):
