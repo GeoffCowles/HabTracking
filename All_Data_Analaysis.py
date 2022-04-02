@@ -175,9 +175,9 @@ dat = np.array([particle, times])
 dat = dat.T
 
 np.savetxt('particle_time_4_27_2015.txt', dat ,header = 'particle number               times')#,delimiter = ',')
+'''
 
-
-'''bin.py'''
+#bin.py
 
 
 data = np.loadtxt('particle_time_4_27_2015.txt')
@@ -185,7 +185,7 @@ data = np.loadtxt('particle_time_4_27_2015.txt')
 #print(type(data[0,:]))
 
 #plt.figure()
-plt.figure(1)
+fig = plt.figure(figsize=(13,10))
 CO = len(data[:,1])
 bins = int(np.sqrt(CO))
 #plt.yscale('log', nonpositive='clip')
@@ -253,7 +253,7 @@ data1 = np.loadtxt('all_lon_4_27_2015.txt')
 #print(data1[:,1])
 #plt.figure()
 
-plt.figure(3)
+fig = plt.figure(figsize=(13,10))
 CO = len(data1[:,1])
 bins = int(np.sqrt(CO))
 #plt.yscale('log', nonpositive='clip')
@@ -266,4 +266,4 @@ plt.xlabel('Longitude',fontsize=16)
 plt.hist(y, bins=bins)
 plt.savefig('starting_lon_4_27_2015.png')
 
-
+'''
