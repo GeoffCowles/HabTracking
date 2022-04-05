@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sun Mar 27 23:20:04 2022
+Created on Tue Apr  5 12:16:53 2022
 
 @author: lcabral4
 """
@@ -31,7 +31,7 @@ import os
 
 from netCDF4 import Dataset
 
-ncfile = '/home/lcabral4/WHOI/WHOI/float_output/Scotia.nc'
+ncfile = '/home/lcabral4/WHOI/WHOI/float_output/test.nc'
 
 data = Dataset(ncfile)
 
@@ -39,18 +39,6 @@ y = data.variables['lat'][:]
 x = data.variables['lon'][:]
 time = data.variables['time'][:]
 temp = data.variables['temp'][:]
-
-starting_longitude = []
-ending_longitude = []
-starting_time = []
-ending_time = []
-starting_lat = []
-ending_lat = []
-particle_number = []
-
-
-#print(longitude)
-#print(starting_time)
 
 fig = plt.figure(figsize=(13,10))
 
@@ -69,31 +57,55 @@ lat_formatter = cticker.LatitudeFormatter()
 
 current_directory = os.getcwd()
 
+starting_longitude = []
+ending_longitude = []
+starting_time = []
+ending_time = []
+starting_lat = []
+ending_lat = []
+particle_number = []
+
+
+#print(longitude)
+#print(starting_time)
+
 
 for p in range(x.shape[0]):
-    if np.any(time[p,0] == 0):
+#    if np.any(time[p,0] == 0):
+    print(time[p,0])
 
-        
-        plt.scatter(x[p,:], y[p,:], c=temp[p,:], s=0.0001, marker = "o")
-        plt.scatter(x[:,0], y[:,0]) 
-plt.colorbar(shrink = .7855)
-plt.clim(-2.5, 27.5) 
+#    plt.scatter(x[p,:], y[p,:], c=temp[p,:], s=0.0001, marker = "o")
+#    plt.scatter(x[:,0], y[:,0]) 
+#plt.colorbar(shrink = .7855)
+#plt.clim(-2.5, 27.5) 
 
 #print(temp, 'temp')
-coord = [[-70,40], [-70,45],[-65,45], [-65,40]]
+#coord = [[-70,40], [-70,45],[-65,45], [-65,40]]
+#coord = [[-20.4,63.2], [-20.4,62.5], [-20.2,62.5], [-20.2,63.5]]
 #poly = Polygon(((-70, 40), (-70, 45), (-65, 45), (-65, 40)))
 #print(poly)
 #poly = MultiPoint(coords).convex_hull
-coord.append(coord[0])
-xs, ys = zip(*coord) #create lists of x and y values 
-plt.plot(xs,ys) 
+#coord.append(coord[0])
+#xs, ys = zip(*coord) #create lists of x and y values 
+##plt.plot(xs,ys) 
 
 
 # plot
 
-print(particle_number)
+#print(particle_number)
 
-plt.title('Greenland')
-plt.xlabel("Longitude")
-plt.ylabel("Latitude")
-plt.savefig("canada_box.png")  
+#plt.title('Greenland')
+#plt.xlabel("Longitude")
+#plt.ylabel("Latitude")
+#plt.savefig("canada_box.png")    
+#plt.show()
+'''
+#print(longitude)
+#print(starting_time)
+
+dat = np.array([particle_number, starting_longitude, ending_longitude, starting_lat, ending_lat, starting_time, ending_time])
+
+dat = dat.T
+
+np.savetxt('England1.txt', dat ,header = 'particle number               starting longitude         ending longitude          starting latitude          ending latitude            start time              end time',delimiter = ',')
+'''
