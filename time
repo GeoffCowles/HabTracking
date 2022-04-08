@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --job-name=Torch_Super
+#SBATCH --output=job_name.o%j
+#SBATCH --error=job_name.e%j
+#SBATCH --nodes=15 --ntasks-per-node=24
+#SBATCH --time=96:00:00
+#SBATCH --partition=long-single
+#SBATCH --mail-user=lcabral4@umassd.edu
+#SBATCH --mail-type=ALL
+#SBATCH --exclusive=user
+echo ${SLURM_JOB_NAME} ${SLURM_JOB_ID} $HOSTNAME >> job_info.txt
+
+python timetxt.py 
